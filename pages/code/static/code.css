@@ -1,0 +1,8 @@
+div{
+    border: 1px black solid;
+    width: fit-content;
+    margin: auto;
+    padding: 1vh 6vh 2vh 6vh;
+    font-size: 2.4vh;
+    background-color: rgb(240,240,240);
+}

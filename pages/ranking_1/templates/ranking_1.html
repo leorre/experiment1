@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="{{ url_for('static', filename='media/bgu_circle.png') }}"/>
+    <link rel="stylesheet" href="{{ url_for('ranking_1.static', filename='ranking_1.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" defer></script>
+    <script type="text/javascript" src="{{ url_for('ranking_1.static', filename='ranking_1.js') }}" defer></script>
+
+    <!-- for transferring data from JS to Flask -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+    <script type=text/javascript>
+        $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+
+    <!-- for mobile: -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  
+  <body onload="orderCriteria()">
+    <br><br><p>Please <b>re-order (drag and drop)</b> the criteria according to <b>your</b> ideal-vacation preferences,<br>
+    from the most important criterion (1) to the least (3):</p><br>
+
+    <div class="criteria_div grid-container-div">
+      <script type=text/javascript>
+          function connectJStoFlask(first,second,third) {
+              $.getJSON($SCRIPT_ROOT + '/insertRanks1', {
+                rank1: first,
+                rank2: second,
+                rank3: third
+            }, function(data) {
+                $("#result").text(data.result);
+            });
+            return false;
+        };
+      </script>
+      <div class="listNum">
+        <p>1.</p>
+        <p>2.</p>
+        <p>3.</p>
+
+
+      </div>
+      <div class="container listVal">
+          <ul id="list" class="grouped">
+            <li id="a" value="3"></li>
+            <li id="b" value="2"></li>
+            <li id="c" value="1"></li>
+          </ul>
+      </div>
+    </div>
+    <br><br>
+    <a href=# id="next"><button type="submit" id="submit" class="nextPage submitBtn" onclick="chosenRank()">Next Page</button></a>
+
+    <!-- forcing the browser to download a new copy of the JS file (instead of ctrl+F5 which is needed)-->
+    <script src="js/myfile.js?t=<?=time()?>" type="text/javascript"></script>
+  </body>
+</html>

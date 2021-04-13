@@ -1,0 +1,55 @@
+body{
+    font-size: 2.4vh;
+    /*margin-left: 12vh;
+    margin-right: 15vh;*/
+    line-height: 4vh;
+    text-align: center;
+    width: 100%;
+}
+
+h1{
+    line-height: 5vh;
+}
+
+.questions{
+    display: inline-block;
+    text-align: left;
+    line-height: 3.5vh;
+    width: auto;
+    margin: auto;
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+.p_question{
+    color: orange;
+}
+
+.label_question{
+    display: inline-block;
+    padding-bottom: 1vh;
+}
+
+.submitBtn{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.age_input{
+    font-family: NotoSans_regular; 
+    font-size: 2.4vh ; 
+    width: 5vh; 
+    height: 3.5vh; 
+    padding-left: 2px;
+}
+
+.age_input:hover{
+    cursor: auto;
+}
+
+input:hover{
+    cursor: pointer;
+}
+
+

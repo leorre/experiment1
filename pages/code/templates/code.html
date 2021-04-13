@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+        <title>Entrance to Experiment</title>
+        <link rel="icon" href="{{ url_for('static', filename='media/bgu_circle.png') }}"/>
+        <link rel="stylesheet" href="{{ url_for('code.static', filename='code.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+        <script type="text/javascript" src="{{ url_for('code.static', filename='code.js') }}"></script>
+
+        <!-- for mobile: -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+
+    <body><br><br><br><br>
+        <div>
+            <p>Please open a new tab on your browser and enter the following URL:</p>
+            <p>------ some url which leads to the entrance ------</p>
+            <p>Using a <b>{{ device }}</b> device and the following personal code: <b>{{ code }}</b></p>
+            <p>You need to remember your personal code in order to start the experiment.</p>
+        </div>
+
+    <a id="entrance" href=# onclick="bla1()">Entrance</a> <!--DELEEEEEEEEEEEETEEEEEEEEEEEEEE--><br><br>
+    <a id="choose" href=# onclick="bla2()">Choose</a>
+    <script>function bla2(){
+        var a = document.getElementById('choose');
+        a.href = "/choosing"
+    }function bla1(){
+        var a = document.getElementById('entrance');
+        a.href = "/entrance"
+    }</script>
+
+
+    </body>
+</html>

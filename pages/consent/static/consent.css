@@ -1,0 +1,31 @@
+body{
+    font-size: 2.4vh;
+    line-height: 4vh;
+    text-align: center;
+    margin: auto;
+    width: 90%;
+}
+
+h1{
+    line-height: 5vh;
+}
+
+ol{
+    margin-left: 5%;
+    padding-left: 0;
+}
+
+li{
+    padding-left: 10px;
+    text-align: left;
+    padding-right: 6px;
+}
+
+.confirm_div{
+    padding-left: 21px;
+    text-align: left;
+}
+
+.nextPage{
+    text-align: center;
+}

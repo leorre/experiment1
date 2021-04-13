@@ -1,0 +1,60 @@
+body{
+    font-size: 2.4vh;
+    /*margin-left: 12vh;
+    margin-right: 15vh;*/
+    line-height: 4vh;
+    text-align: center;
+}
+
+h1{
+    line-height: 5vh;
+}
+
+.submitBtn{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+/* TABLE: */
+
+
+.likert_questions{
+    display: inline-block;
+    width: auto;
+    margin: auto;
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+.likert {
+    border-collapse: collapse;
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+    display:inline-block;
+    margin-bottom: 2vh;
+}
+
+.likert td { /* the radio buttons in the table */
+    padding-right: 1vh;
+    padding-left: 1vh;
+    line-height: 2vh;
+    font-size: 2vh;
+    background-image: url('black_line.png');
+}
+
+.likert input{ /* box size */
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+
+th:hover{
+    cursor: context-menu;
+}
+
+input:hover{
+    cursor: pointer;
+}
+

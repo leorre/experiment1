@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+        <title>Experiment</title>
+        <link rel="icon" href="{{ url_for('static', filename='media/bgu_circle.png') }}"/>
+        <link rel="stylesheet" href="{{ url_for('instructions.static', filename='instructions.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+
+        <!-- for mobile: -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+    </head>
+
+    <body>
+        <h1>Instructions</h1><hr><br>
+        <div class="main_div">
+            <p>In the following task, you will be asked to<b> choose a vacation deal you would like to purchase if given the opportunity, assuming all prices are the same</b>.</p>
+            <p>The experiment will simulate browsing a system that will match vacations to your personal preferences.</p>
+            <p>You will be asked to rank several criteria, in order for the recommender system to study your preferences.</p>
+            <p>The system will then provide you it's recommendations, along with all the vacation deals.</p>
+            <p style="margin-top: 7vh;">Browsing back and forth is not possible. Therefore, please progress to the next page only when your answers are final.</p>
+            <p>Please do not use any other browsers or web-pages during the task</p>
+            <p>The experiment should be performed alone and independently.</p>
+            <p>Please do not transfer any information about the task to other participants.</p>
+            <p>You can leave the task at any time, but you will not be able to receive payment if you have not answered all questions.</p>
+            <p>Completeing the experiment will take 20 minutes on average.</p>
+            <p>At the end of this task you will recieve a verification code. Please copy the code and paste it as required in MTurk, in order to properly get credit for this task.</p>
+        </div><br>
+        <a href="/ranking_1"><input type="submit" id="submit" class="nextPage submitBtn" value="Next Page"></a>
+    </body>
+</html>

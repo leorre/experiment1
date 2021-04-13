@@ -1,0 +1,59 @@
+h1{
+    color: coral;
+}
+
+html{
+    text-align: center;
+    font-family: NotoSans_light;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(255,127,80);
+}
+
+/* hide or display element class*/
+.dispNone{
+    display: none;
+  }
+  .dispBlock {
+    display: block;
+  }
+  .dispInlineBlock{
+    display: inline-block;
+  }
+
+.submitBtn {
+    font-size: 2.5vh;
+    font-family: NotoSans_bold;
+    text-align: center;
+    color: rgb(255,127,80);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 2vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    padding-bottom: 1vh;
+    display:inline-block;
+    cursor: pointer;
+    background-color: rgb(240,240,240);
+}
+
+.submitBtn:hover{
+    background-color: rgb(245,245,245);
+}
+
+/* fonts */
+@font-face{
+    font-family: NotoSans_light;
+    src: url(NotoSansJP-300-Light.otf);
+}
+
+@font-face{
+    font-family: NotoSans_regular;
+    src: url(NotoSansJP-400-Regular.otf);
+}
+
+@font-face{
+    font-family: NotoSans_bold;
+    src: url(NotoSansJP-700-Bold.otf);
+}

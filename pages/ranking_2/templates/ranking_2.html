@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+        <title>Experiment</title>
+        <link rel="icon" href="{{ url_for('static', filename='media/bgu_circle.png') }}"/>
+        <link rel="stylesheet" href="{{ url_for('ranking_2.static', filename='ranking_2.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+        <script type="text/javascript" src="{{ url_for('ranking_2.static', filename='ranking_2.js') }}"></script>
+
+        <!-- for transferring data from JS to Flask -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+        <script type=text/javascript>
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        </script>
+
+        <!-- for mobile: -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+
+    <body onload="orderCriteria()">
+        <script type=text/javascript>
+          function connectJStoFlask(first,second,third) {
+              $.getJSON($SCRIPT_ROOT + '/insertRanks2', {
+                rank1: first,
+                rank2: second,
+                rank3: third
+            }, function(data) {
+                  $("#result").text(data.result);
+            });
+            return false;
+        };
+        </script>
+        <br><br><p>Please select one preferred option for each group<br>accroding to <b>your</b> preferences:</p><br><br>
+        <p class="p_select">Select a Continent:</p>
+        <div class="select">
+            <select name="slct1" id="slct1">
+                <option selected disabled>Continent</option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+            </select>
+        </div><br>
+        <p class="p_select">Select a Vacation Type:</p>
+        <div class="select">
+            <select name="slct2" id="slct2">
+                <option selected disabled>Vacation Type</option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+            </select>
+        </div><br>
+        <p class="p_select">Select a Sleeping Arrangement:</p>
+        <div class="select">
+            <select name="slct3" id="slct3">
+                <option selected disabled>Sleeping Arrangement</option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+            </select>
+        </div>
+        <br><br><br>
+
+        <button type="submit" id="submit" class="nextPage submitBtn" onclick="chosenRank()"><a href=# id="next">Next Page</a></button>
+
+        <!-- Loading ring (fake) -->
+        <p id="loading_p" style="display: none;">Calculating your preferences</p><br>
+        <div id="loading_circle" class="loader dispNone"></div>
+
+
+    </body>
+</html>

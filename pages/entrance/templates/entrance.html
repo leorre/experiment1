@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+        <title>Entrance to Experiment</title>
+        <link rel="icon" href="{{ url_for('static', filename='media/bgu_circle.png') }}"/>
+        <link rel="stylesheet" href="{{ url_for('entrance.static', filename='entrance.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+        <script type="text/javascript" src="{{ url_for('entrance.static', filename='entrance.js') }}"></script>
+
+        <!-- for transferring data from JS to Flask -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+        <script type=text/javascript>
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        </script>
+
+        <!-- for mobile: -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+
+    <body>
+
+        <script type=text/javascript>
+          function connectJStoFlask(code) {
+              $.getJSON($SCRIPT_ROOT + '/insertCode', {
+                code: code
+            }, function(data) {
+                $("#result").text(data.result);
+            });
+            return false;
+        };
+        </script>
+
+        <br><hr><img class="BGU_Image" src="{{ url_for('entrance.static', filename='bgu_logo.png') }}" alt="Ben-Gurion University Logo" width="300vh"><hr><br><br>
+        <div class="box">
+            <h1>Welcome</h1>
+            <h3>
+                Please enter your personal code:
+            </h3>
+
+            <form action="/entrance" method="POST">
+                <label for="inp" class="inp text_box">
+                    <input type="text" id="code_id" name="code_id" placeholder="&nbsp;" onkeydown = "if (event.keyCode == 13)
+                    document.getElementById('submit_id').click()"> <!-- allows the user to click "enter" instead of clicking on "Login"-->
+                    <span class="label">Code</span>
+                    <span class="focus-bg"></span>
+                </label>
+                <button type="submit" id="submit_id" class="submitBtn" onclick="checkCode()" value="Login">Login</button>
+                <br>
+                <input style="display: none"/> <!-- the code doesn't work without this row..-->
+            </form>
+        </div>
+    </body>
+</html>

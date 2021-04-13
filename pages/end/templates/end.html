@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+        <title>Experiment</title>
+        <link rel="icon" href="{{ url_for('static', filename='media/bgu_circle.png') }}"/>
+        <link rel="stylesheet" href="{{ url_for('end.static', filename='end.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+
+        <!-- for mobile: -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+    </head>
+
+    <body>
+        <br><hr><img class="BGU_Image" src="{{ url_for('entrance.static', filename='bgu_logo.png') }}" alt="Ben-Gurion University Logo" width="300vh"><hr><br><br>
+        <h1>Thank you.</h1><br>
+        <p>Your code for Amazon Turk is:</p>
+        <b>{{ amazon_code }}</b>
+    </body>
+</html>
