@@ -22,7 +22,6 @@ def code2():
         query = """UPDATE "curr_codes" SET "currPcCode" = '%s' WHERE "currMobileCode" = '%s'""" % (
         curr_pc_code + 1, curr_mobile_code)
         interact_db(query=query, query_type='commit')
-    # curr_code = 1060  ######################## DELEEEEEEEEEEEEETEEEEEEEEEEEEEEEEEEEEE
     print(curr_code)
     device = "Smartphone"
     if curr_code < 2000: #1000-1999 it's pc user

@@ -16,7 +16,6 @@ def choosing2():
     session['start_time'] = time.time()
     print("start_time:",session['start_time'])
     autonomy_lvl = generateAutonomyLvl()
-    autonomy_lvl = 'high' ############DELEEEEEEEEETEEEEEE
     query_rec = """SELECT "continentRank", "typeRank", "sleepRank", "continentOption", "typeOption", "sleepOption" FROM users WHERE "id" = '%s'""" % (session['code'])
     user_ranking = interact_db(query=query_rec, query_type='fetch')
     user_ranking = user_ranking[0]
