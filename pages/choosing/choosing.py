@@ -13,7 +13,7 @@ choosing = Blueprint('choosing', __name__, static_folder='static', static_url_pa
 # Routes
 @choosing.route('/choosing')
 def choosing2():
-    session['start_time'] = time.clock()
+    session['start_time'] = time.time()
     print("start_time:",session['start_time'])
     autonomy_lvl = generateAutonomyLvl()
     autonomy_lvl = 'high' ############DELEEEEEEEEETEEEEEE
@@ -301,7 +301,7 @@ def matchingVacationOption(option):
 # inserts user's choices to DB - wether he chose the recommendation and the number of clicks on the rec window
 @choosing.route('/insertUserChoices')
 def insertUserChoices():
-    time_diff = time.clock() - session.get('start_time', 0)  # user time in the page (including time in other websites)
+    time_diff = time.time() - session.get('start_time', 0)  # user time in the page (including time in other websites)
     print(time_diff)
     print("type",type(time_diff))
     is_recomm = request.args.get('choseRec')  # false=not recomm, true=chose what was recommended
