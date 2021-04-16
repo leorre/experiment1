@@ -1,5 +1,6 @@
 import psycopg2
 from flask import Blueprint, render_template, redirect, session, request, jsonify
+from dbUtils import interact_db
 
 # events blueprint definition
 ranking_1 = Blueprint('ranking_1', __name__, static_folder='static', static_url_path='/ranking_1', template_folder='templates')
@@ -38,23 +39,3 @@ def insertRanks1():
     interact_db(query=query, query_type='commit')
     return #no need for render_template or redirect - it doesnt work because of ajax
     #the redirections is from the Javascript
-
-
-# DB connection
-def interact_db(query, query_type: str):
-    return_value = False
-    connection = psycopg2.connect(host='localhost', user='postgres', password='root', database='postgres')
-    cursor = connection.cursor()
-    cursor.execute(query)
-
-    if query_type == 'commit':
-        connection.commit()
-        return_value = True
-
-    if query_type == 'fetch':
-        query_result = cursor.fetchall()
-        return_value = query_result
-
-    connection.close()
-    cursor.close()
-    return return_value

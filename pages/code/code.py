@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, session
-import psycopg2
+from dbUtils import interact_db
 
 # events blueprint definition
 code = Blueprint('code', __name__, static_folder='static', static_url_path='/code', template_folder='templates')
@@ -48,21 +48,3 @@ def baseFunction():
     return render_template("/code", code=curr_code)
 
 
-# DB connection
-def interact_db(query, query_type: str):
-    return_value = False
-    connection = psycopg2.connect(host='localhost', user='postgres', password='root', database='postgres')
-    cursor = connection.cursor()
-    cursor.execute(query)
-
-    if query_type == 'commit':
-        connection.commit()
-        return_value = True
-
-    if query_type == 'fetch':
-        query_result = cursor.fetchall()
-        return_value = query_result
-
-    connection.close()
-    cursor.close()
-    return return_value

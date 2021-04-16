@@ -1,6 +1,7 @@
 import time
 
 import psycopg2
+from dbUtils import interact_db
 from flask import Blueprint, render_template, request, session, g
 import random
 
@@ -26,6 +27,9 @@ def choosing2():
     else: #autonomy_lvl == 'high'
         recomm_list = recommForHighAutonomy(user_ranking)
     vacation_list = createVacationSet(user_ranking, recomm_list)
+    print("before return")
+    print("vacation list",vacation_list)
+    print("recomm",recomm_list)
     return render_template('choosing.html', vacation_list=vacation_list, recomm_list=recomm_list)
 
 
@@ -309,24 +313,3 @@ def insertUserChoices():
     return
 
 
-
-
-
-# DB connection
-def interact_db(query, query_type: str):
-    return_value = False
-    connection = psycopg2.connect(host='localhost', user='postgres', password='root', database='postgres')
-    cursor = connection.cursor()
-    cursor.execute(query)
-
-    if query_type == 'commit':
-        connection.commit()
-        return_value = True
-
-    if query_type == 'fetch':
-        query_result = cursor.fetchall()
-        return_value = query_result
-
-    connection.close()
-    cursor.close()
-    return return_value

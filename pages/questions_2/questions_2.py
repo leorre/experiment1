@@ -1,5 +1,6 @@
 import psycopg2
 from flask import Blueprint, render_template, request, session, redirect
+from dbUtils import interact_db
 
 # events blueprint definition
 questions_2 = Blueprint('questions_2', __name__, static_folder='static', static_url_path='/questions_2', template_folder='templates')
@@ -21,22 +22,4 @@ def questions_22():
     return render_template('questions_2.html')
 
 
-# DB connection
-def interact_db(query, query_type: str):
-    return_value = False
-    connection = psycopg2.connect(host='localhost', user='postgres', password='root', database='postgres')
-    cursor = connection.cursor()
-    cursor.execute(query)
-
-    if query_type == 'commit':
-        connection.commit()
-        return_value = True
-
-    if query_type == 'fetch':
-        query_result = cursor.fetchall()
-        return_value = query_result
-
-    connection.close()
-    cursor.close()
-    return return_value
 

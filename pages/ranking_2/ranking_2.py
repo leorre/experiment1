@@ -1,5 +1,6 @@
 import psycopg2
 from flask import Blueprint, render_template, request, redirect, session
+from dbUtils import interact_db
 
 # events blueprint definition
 ranking_2 = Blueprint('ranking_2', __name__, static_folder='static', static_url_path='/ranking_2', template_folder='templates')
@@ -22,21 +23,4 @@ def insertRanks2():
     return
 
 
-# DB connection
-def interact_db(query, query_type: str):
-    return_value = False
-    connection = psycopg2.connect(host='localhost', user='postgres', password='root', database='postgres')
-    cursor = connection.cursor()
-    cursor.execute(query)
 
-    if query_type == 'commit':
-        connection.commit()
-        return_value = True
-
-    if query_type == 'fetch':
-        query_result = cursor.fetchall()
-        return_value = query_result
-
-    connection.close()
-    cursor.close()
-    return return_value
