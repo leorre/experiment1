@@ -30,20 +30,6 @@
 
         <!-- forcing the browser to download a new copy of the JS file (instead of ctrl+F5 which is needed)-->
         <script src="ranking_1.js?t=<?=time()?>" type="text/javascript"></script>
-
-
-{#        <script> //instead of ctrl+F5#}
-{#             $.ajax({#}
-{#                url: window.location.href,#}
-{#                headers: {#}
-{#                    "Pragma": "no-cache",#}
-{#                    "Expires": -1,#}
-{#                    "Cache-Control": "no-cache"#}
-{#                }#}
-{#            }).done(function () {#}
-{#                window.location.reload(true);#}
-{#            });#}
-{#        </script>#}
     </div>
 
     <br><br><p>Please <b>re-order (drag and drop)</b> the criteria according to <b>your</b> ideal-vacation preferences,<br>
@@ -75,7 +61,9 @@
           </ul>
       </div>
     </div>
-    <br><br>
+    <br>
+      <p style="font-size: 2.2vh">(If the drag and drop <b>does not work</b> - please <b>refresh</b> the page)</p>
+    <br>
     <a href=# id="next"><button type="submit" id="submit" class="nextPage submitBtn" onclick="chosenRank()">Next Page</button></a>
   </body>
 </html>
