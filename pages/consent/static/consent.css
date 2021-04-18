@@ -10,6 +10,12 @@ h1{
     line-height: 5vh;
 }
 
+.submitBtn{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
 ol{
     margin-left: 5%;
     padding-left: 0;
