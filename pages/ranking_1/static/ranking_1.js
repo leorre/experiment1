@@ -1,56 +1,55 @@
 // onload function
 // the function randomizes numbers between 1-3 for all three criteria
 
-function orderCriteria() {
-        //randomize three numbers (1,2,3) to the <li> elements (to the criteria)
-        var firstNum = Math.floor(Math.random() * 3) + 1;
-        var secondNum;
-        var thirdNum;
-        do {
-            secondNum = Math.floor(Math.random() * 3) + 1;
-        } while (secondNum == firstNum);
-        do {
-            thirdNum = Math.floor(Math.random() * 3) + 1;
-        } while (thirdNum == firstNum || thirdNum == secondNum);
-        // the elements are randomized
-        // get the criteria according to the numbers
-        var firstElement = randNumToCriterion(firstNum);
-        var secondElement = randNumToCriterion(secondNum);
-        var thirdElement = randNumToCriterion(thirdNum);
-        //change the elements (<li>) content according to the random
-        document.getElementsByTagName("LI")[0].innerHTML = firstElement;
-        document.getElementsByTagName("LI")[1].innerHTML = secondElement;
-        document.getElementsByTagName("LI")[2].innerHTML = thirdElement;
-    }
+// function orderCriteria() {
+//         //randomize three numbers (1,2,3) to the <li> elements (to the criteria)
+//         var firstNum = Math.floor(Math.random() * 3) + 1;
+//         var secondNum;
+//         var thirdNum;
+//         do {
+//             secondNum = Math.floor(Math.random() * 3) + 1;
+//         } while (secondNum == firstNum);
+//         do {
+//             thirdNum = Math.floor(Math.random() * 3) + 1;
+//         } while (thirdNum == firstNum || thirdNum == secondNum);
+//         // the elements are randomized
+//         // get the criteria according to the numbers
+//         var firstElement = randNumToCriterion(firstNum);
+//         var secondElement = randNumToCriterion(secondNum);
+//         var thirdElement = randNumToCriterion(thirdNum);
+//         //change the elements (<li>) content according to the random
+//         document.getElementsByTagName("LI")[0].innerHTML = firstElement;
+//         document.getElementsByTagName("LI")[1].innerHTML = secondElement;
+//         document.getElementsByTagName("LI")[2].innerHTML = thirdElement;
+//     }
+//
+// //return the correct criterion to the given number (1=continent, 2=vacation type, 3=sleeping arrangement)
+//     function randNumToCriterion(num) {
+//         if (num == 1)
+//             return "Continent";
+//         if (num == 2)
+//             return "Vacation Type";
+//         return "Sleeping Arrangement";
+//     }
+//
+//
+// //the function extracts the user criteria according to his preferences
+//     function chosenRank() {
+//         //Continent=1,Vacation Type=2,Sleeping Arrangement=3
+//         var x = document.getElementsByTagName("LI");
+//         first = x[0].innerHTML;
+//         second = x[1].innerHTML;
+//         third = x[2].innerHTML;
+//         //alert("first: "+first+", second: "+second+", third: "+third); //the user preferences
+//         connectJStoFlask(first, second, third);
+//         nextPage(); //moves to the next page
+//     }
+//
+//     function nextPage() {
+//         var a = document.getElementById('next');
+//         a.href = "/algo_data";
+//     }
 
-//return the correct criterion to the given number (1=continent, 2=vacation type, 3=sleeping arrangement)
-    function randNumToCriterion(num) {
-        if (num == 1)
-            return "Continent";
-        if (num == 2)
-            return "Vacation Type";
-        return "Sleeping Arrangement";
-    }
-
-
-//the function extracts the user criteria according to his preferences
-    function chosenRank() {
-        //Continent=1,Vacation Type=2,Sleeping Arrangement=3
-        var x = document.getElementsByTagName("LI");
-        first = x[0].innerHTML;
-        second = x[1].innerHTML;
-        third = x[2].innerHTML;
-        //alert("first: "+first+", second: "+second+", third: "+third); //the user preferences
-        connectJStoFlask(first, second, third);
-        nextPage(); //moves to the next page
-    }
-
-    function nextPage() {
-        var a = document.getElementById('next');
-        a.href = "/algo_data";
-    }
-
-    console.log('hey');
 
 
 // DRAG & DROP FUNCTIONS:

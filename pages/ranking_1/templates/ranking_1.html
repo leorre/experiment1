@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('ranking_1.static', filename='ranking_1.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
     <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" defer></script>-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
     <!-- for transferring data from JS to Flask -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -18,18 +19,67 @@
         $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
     </script>
 
+
     <!-- for mobile: -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
   
   <body onload="orderCriteria()">
-      <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" defer></script>
+      <script>
+            function orderCriteria() {
+                //randomize three numbers (1,2,3) to the <li> elements (to the criteria)
+                var firstNum = Math.floor(Math.random() * 3) + 1;
+                var secondNum;
+                var thirdNum;
+                do {
+                    secondNum = Math.floor(Math.random() * 3) + 1;
+                } while (secondNum == firstNum);
+                do {
+                    thirdNum = Math.floor(Math.random() * 3) + 1;
+                } while (thirdNum == firstNum || thirdNum == secondNum);
+                // the elements are randomized
+                // get the criteria according to the numbers
+                var firstElement = randNumToCriterion(firstNum);
+                var secondElement = randNumToCriterion(secondNum);
+                var thirdElement = randNumToCriterion(thirdNum);
+                //change the elements (<li>) content according to the random
+                document.getElementsByTagName("LI")[0].innerHTML = firstElement;
+                document.getElementsByTagName("LI")[1].innerHTML = secondElement;
+                document.getElementsByTagName("LI")[2].innerHTML = thirdElement;
+            }
+
+            //return the correct criterion to the given number (1=continent, 2=vacation type, 3=sleeping arrangement)
+            function randNumToCriterion(num) {
+                if (num == 1)
+                    return "Continent";
+                if (num == 2)
+                    return "Vacation Type";
+                return "Sleeping Arrangement";
+            }
+
+            //the function extracts the user criteria according to his preferences
+            function chosenRank() {
+                //Continent=1,Vacation Type=2,Sleeping Arrangement=3
+                var x = document.getElementsByTagName("LI");
+                first = x[0].innerHTML;
+                second = x[1].innerHTML;
+                third = x[2].innerHTML;
+                //alert("first: "+first+", second: "+second+", third: "+third); //the user preferences
+                connectJStoFlask(first, second, third);
+                nextPage(); //moves to the next page
+            }
+
+            function nextPage() {
+                var a = document.getElementById('next');
+                a.href = "/algo_data";
+            }
+      </script>
       <script type="text/javascript" src="{{ url_for('ranking_1.static', filename='ranking_1.js') }}" defer></script>
       <div data-role="page"> <!-- js is here because otherwise it works in mobile only after refresh -->
 
         <!-- forcing the browser to download a new copy of the JS file (instead of ctrl+F5 which is needed)-->
-        <script src="ranking_1.js?t=<?=time()?>" type="text/javascript"></script>
+        <!--<script src="ranking_1.js?t=<?=time()?>" type="text/javascript"></script>-->
     </div>
 
     <br><br><p>Please <b>re-order (drag and drop)</b> the criteria according to <b>your</b> ideal-vacation preferences,<br>
