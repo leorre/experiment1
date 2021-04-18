@@ -47,7 +47,7 @@ function orderCriteria() {
 
     function nextPage() {
         var a = document.getElementById('next');
-        a.href = "/algo_data";
+        //a.href = "/algo_data";
     }
 
     console.log('hey');
