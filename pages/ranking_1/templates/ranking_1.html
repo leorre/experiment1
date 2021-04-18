@@ -25,7 +25,8 @@
   </head>
   
   <body onload="orderCriteria()">
-    <div data-role="page"> <!-- js is here because otherwise it works in mobile only after refresh -->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" defer></script>
+      <div data-role="page"> <!-- js is here because otherwise it works in mobile only after refresh -->
 
         <!-- forcing the browser to download a new copy of the JS file (instead of ctrl+F5 which is needed)-->
         <script src="ranking_1.js?t=<?=time()?>" type="text/javascript"></script>
