@@ -47,10 +47,10 @@ p {
 }
 
 /*right-grid div (the criteria)*/
-.listVal {
+/*.listVal {
     grid-area: listVal;
+}*/
 
-}
 li{
     background-color: rgb(255, 239, 221);
     padding-left: 8px;
