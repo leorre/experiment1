@@ -792,6 +792,19 @@
         </script>
         <!-- forcing the browser to download a new copy of the JS file (instead of ctrl+F5 which is needed)-->
         <script src="ranking_1.js?t=<?=time()?>" type="text/javascript"></script>
+
+        <script> //instead of ctrl+F5
+             $.ajax({
+                url: window.location.href,
+                headers: {
+                    "Pragma": "no-cache",
+                    "Expires": -1,
+                    "Cache-Control": "no-cache"
+                }
+            }).done(function () {
+                window.location.reload(true);
+            });
+        </script>
     </div>
 
     <br><br><p>Please <b>re-order (drag and drop)</b> the criteria according to <b>your</b> ideal-vacation preferences,<br>
