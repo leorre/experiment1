@@ -9,7 +9,7 @@
     <link rel="icon" href="{{ url_for('static', filename='media/bgu_circle.png') }}"/>
     <link rel="stylesheet" href="{{ url_for('ranking_1.static', filename='ranking_1.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
-    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" defer></script>-->
+{#    it is important for the jQuery to load before JS. therefore i added "defer" im the JS tag#}
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
     <!-- for transferring data from JS to Flask -->
@@ -18,7 +18,6 @@
     <script type=text/javascript>
         $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
     </script>
-
 
     <!-- for mobile: -->
     <meta charset="utf-8">
@@ -75,12 +74,8 @@
                 a.href = "/algo_data";
             }
       </script>
+      {#    it is important for the jQuery to load before JS. therefore i added "defer" im the JS tag below#}
       <script type="text/javascript" src="{{ url_for('ranking_1.static', filename='ranking_1.js') }}" defer></script>
-      <div data-role="page"> <!-- js is here because otherwise it works in mobile only after refresh -->
-
-        <!-- forcing the browser to download a new copy of the JS file (instead of ctrl+F5 which is needed)-->
-        <!--<script src="ranking_1.js?t=<?=time()?>" type="text/javascript"></script>-->
-    </div>
 
     <br><br><p>Please <b>re-order (drag and drop)</b> the criteria according to <b>your</b> ideal-vacation preferences,<br>
     from the most important criterion (1) to the least (3):</p><br>
@@ -112,7 +107,7 @@
       </div>
     </div>
     <br>
-      <p style="font-size: 2.2vh">(If the drag and drop <b>does not work</b> - please <b>refresh</b> the page)</p>
+{#      <p style="font-size: 2.2vh">(If the drag and drop <b>does not work</b> - please <b>refresh</b> the page)</p>#}
     <br>
     <a href=# id="next"><button type="submit" id="submit" class="nextPage submitBtn" onclick="chosenRank()">Next Page</button></a>
   </body>
