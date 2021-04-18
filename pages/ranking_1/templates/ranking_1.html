@@ -9,8 +9,7 @@
     <link rel="icon" href="{{ url_for('static', filename='media/bgu_circle.png') }}"/>
     <link rel="stylesheet" href="{{ url_for('ranking_1.static', filename='ranking_1.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" defer></script>
-    <script type="text/javascript" src="{{ url_for('ranking_1.static', filename='ranking_1.js') }}" defer></script>
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" defer></script>-->
 
     <!-- for transferring data from JS to Flask -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -26,6 +25,7 @@
   
   <body onload="orderCriteria()">
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" defer></script>
+      <script type="text/javascript" src="{{ url_for('ranking_1.static', filename='ranking_1.js') }}" defer></script>
       <div data-role="page"> <!-- js is here because otherwise it works in mobile only after refresh -->
 
         <!-- forcing the browser to download a new copy of the JS file (instead of ctrl+F5 which is needed)-->
