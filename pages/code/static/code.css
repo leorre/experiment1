@@ -3,14 +3,14 @@ body{
     line-height: 4vh;
     text-align: center;
     margin: auto;
-    width: 90%;
+    width: 100%;
 }
 
 div{
-    /*border: 1px black solid;
+    border: 1px black solid;
     /*width: fit-content;
     margin: auto;*/
-    /*padding: 1vh 6vh 2vh 6vh;*/
+    padding: 1vh 3vh 2vh 3vh;
     font-size: 2.4vh;
     background-color: rgb(240,240,240);
 }
