@@ -224,7 +224,7 @@ def getRandType (user_ranking):
     return type
 
 def getRandSleep (user_ranking):
-    sleeps = ['Hotel', 'Rental apartment', 'Guesthouse', 'Cabin']
+    sleeps = ['Hotel', 'Rental Apartment', 'Guesthouse', 'Cabin']
     temp_sleep = user_ranking[5]  # the user chose but we want to change to a different one because it's the second ranked
     sleeps.remove(temp_sleep)  # clears vacation types list from the original type choice
     sleeps = matchingVacationOptionForList(sleeps)
@@ -288,13 +288,13 @@ def matchingVacationOption(option):
     if option == "Cultural":
         return "Landmarks & museums"
     if option == "Hotel":
-        return "Hotel"
-    if option == "Rental apartment":
-        return "Rental apartment"
+        return "hotel"
+    if option == "Rental Apartment":
+        return "rental apartment"
     if option == "Guesthouse":
-        return "Guesthouse"
+        return "guesthouse"
     if option == "Cabin":
-        return "Cabin"
+        return "cabin"
 
 
 # inserts user's choices to DB - wether he chose the recommendation and the number of clicks on the rec window

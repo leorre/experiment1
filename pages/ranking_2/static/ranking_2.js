@@ -5,7 +5,7 @@ function orderCriteria (){
     var firstNum, secondNum, thirdNum, forthNum;
     continents = ["Africa", "America", "Asia", "Europe"]; //array of options for each criterion
     vacation_types = ["Backpacking", "Leisure", "Package tour", "Cultural"];
-    sleepings = ["Hotel", "Rental apartment", "Guesthouse", "Cabin"];
+    sleepings = ["Hotel", "Rental Apartment", "Guesthouse", "Cabin"];
     // for loop - three times, for each criterion
     for (var i = 0; i < 3; i++) {
         //randomize 4 numbers (the options to the criteria) - 1-4
