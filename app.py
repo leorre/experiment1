@@ -8,6 +8,9 @@ app.config.from_pyfile('settings.py')
 # app.secret_key = '123'
 
 
+# git commit -am "third heroku deployment"
+# git push heroku master
+
 
 ################## Pages ##################
 ## code

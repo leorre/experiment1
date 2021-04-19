@@ -63,7 +63,6 @@ window.mobileCheck = function() {
 
 // check the browser (doesnt work in firefox or IE)
 function validBrowser() {
-    alert("in the function 'valid browser'");
     // Firefox 1.0+
     var isFirefox = typeof InstallTrigger !== 'undefined';
     // Internet Explorer 6-11
