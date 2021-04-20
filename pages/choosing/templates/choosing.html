@@ -34,10 +34,10 @@
         </script>
         <div class="header">
             <h1>Please choose one vacation-deal:</h1>
-            <p>Recommended for you:</p>
-            <div>
+            <p><b>Recommended for you:</b></p>
+            <div style="width: max-content; margin-bottom: 0; padding-bottom: 0;">
                 {% for vacation in recomm_list %}
-                    <div style="max-width: max-content; margin: auto; background-color: rgb(249,204,157);
+                    <div style="margin: auto; background-color: rgb(249,204,157);
                     margin-bottom: 0.5vh; padding: 0.2vh 1vh 0vh 1vh"
                          id='-1' class="deal recomm" onclick="userChoice(id)">
                         <p>{{ vacation[2] }} in {{ vacation[1] }}, in a {{ vacation[3] }}</p>
