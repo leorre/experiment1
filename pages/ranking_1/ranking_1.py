@@ -17,6 +17,7 @@ def insertRanks1():
     rank1 = request.args.get('rank1')
     rank2 = request.args.get('rank2')
     rank3 = request.args.get('rank3')
+    changeRank = request.args.get('changed')
     # transferring rank1, rank2, rank3 to each criteria rank
     # instead of rank2=Sleeping Arrangement, we recieve sleepRank = 2
     continentRank = 3
@@ -34,8 +35,8 @@ def insertRanks1():
         sleepRank=1
     elif rank2 == "Sleeping Arrangement":
         sleepRank=2
-    query = """INSERT INTO users(id, "continentRank", "typeRank", "sleepRank") VALUES ('%s', '%s', '%s', '%s') """ \
-            % (session['code'], continentRank, typeRank, sleepRank)
+    query = """INSERT INTO users(id, "continentRank", "typeRank", "sleepRank", "changeRank") VALUES ('%s', '%s', '%s', '%s', '%s') """ \
+            % (session['code'], continentRank, typeRank, sleepRank, changeRank)
     interact_db(query=query, query_type='commit')
     return #no need for render_template or redirect - it doesnt work because of ajax
     #the redirections is from the Javascript

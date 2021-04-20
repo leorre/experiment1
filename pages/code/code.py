@@ -23,9 +23,9 @@ def code2():
         curr_pc_code + 1, curr_mobile_code)
         interact_db(query=query, query_type='commit')
     print(curr_code)
-    device = "Smartphone"
+    device = "smartphone"
     if curr_code < 2000: #1000-1999 it's pc user
-        device = "Computer"
+        device = "computer"
     return render_template('code.html', device=device, code=curr_code)
 
 

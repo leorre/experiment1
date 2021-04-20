@@ -26,6 +26,10 @@
   
   <body onload="orderCriteria()">
       <script>
+            var firstElement;
+            var secondElement;
+            var thirdElement;
+
             function orderCriteria() {
                 //randomize three numbers (1,2,3) to the <li> elements (to the criteria)
                 var firstNum = Math.floor(Math.random() * 3) + 1;
@@ -39,9 +43,9 @@
                 } while (thirdNum == firstNum || thirdNum == secondNum);
                 // the elements are randomized
                 // get the criteria according to the numbers
-                var firstElement = randNumToCriterion(firstNum);
-                var secondElement = randNumToCriterion(secondNum);
-                var thirdElement = randNumToCriterion(thirdNum);
+                firstElement = randNumToCriterion(firstNum);
+                secondElement = randNumToCriterion(secondNum);
+                thirdElement = randNumToCriterion(thirdNum);
                 //change the elements (<li>) content according to the random
                 document.getElementsByTagName("LI")[0].innerHTML = firstElement;
                 document.getElementsByTagName("LI")[1].innerHTML = secondElement;
@@ -65,7 +69,10 @@
                 second = x[1].innerHTML;
                 third = x[2].innerHTML;
                 //alert("first: "+first+", second: "+second+", third: "+third); //the user preferences
-                connectJStoFlask(first, second, third);
+                var changed = false;
+                if (first != firstElement || second != secondElement || third != thirdElement)
+                    changed = true; //the user did change the original order
+                connectJStoFlask(first, second, third, changed);
                 nextPage(); //moves to the next page
             }
 
@@ -82,11 +89,12 @@
 
     <div class="criteria_div grid-container-div">
       <script type=text/javascript>
-          function connectJStoFlask(first,second,third) {
+          function connectJStoFlask(first,second,third, changed) {
               $.getJSON($SCRIPT_ROOT + '/insertRanks1', {
                 rank1: first,
                 rank2: second,
-                rank3: third
+                rank3: third,
+                changed: changed
             }, function(data) {
                 $("#result").text(data.result);
             });
