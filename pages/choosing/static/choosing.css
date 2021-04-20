@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     justify-content: center;*/
     align-items: center;
-    font-size: 2.4vh;
+    /*font-size: 2.4vh;*/
     text-align: center;
 }
 
@@ -24,12 +24,11 @@ p {
 
 .header {
     /*grid-area: header;*/
-    width: 100%;
+    /*width: 100%;*/
     background-color: white;
     position: sticky;
     left: 5%;
     top: 0.01%;
-    border-bottom: 1px solid rgb(154,154,154);
     border-bottom: 1px solid orange;
 }
 
@@ -38,7 +37,7 @@ p {
     /*width: 90%;*/
     margin: auto;
     padding-top: 2vh;
-    width: max-content;
+    /*width: max-content;*/
     margin:auto;
 }
 
@@ -63,24 +62,24 @@ p {
     background-color: #ffe3b7;
 }
 
-button{
-    font-size: 2.5vh;
-    font-family: NotoSans_bold;
-    text-align: center;
-    color: rgb(255,127,80);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    margin-top: 2vh;
-    padding-left: 1vh;
-    padding-right: 1vh;
-    padding-bottom: 1vh;
-    display:inline-block;
-    cursor: pointer;
-    background-color: rgb(240,240,240);
-}
+/*button{*/
+/*    font-size: 2.5vh;*/
+/*    font-family: NotoSans_bold;*/
+/*    text-align: center;*/
+/*    color: rgb(255,127,80);*/
+/*    border: 1px solid rgba(0, 0, 0, 0.2);*/
+/*    margin-top: 2vh;*/
+/*    padding-left: 1vh;*/
+/*    padding-right: 1vh;*/
+/*    padding-bottom: 1vh;*/
+/*    display:inline-block;*/
+/*    cursor: pointer;*/
+/*    background-color: rgb(240,240,240);*/
+/*}*/
 
-button:hover{
-    background-color: rgb(245,245,245);
-}
+/*button:hover{*/
+/*    background-color: rgb(245,245,245);*/
+/*}*/
 
 
 
