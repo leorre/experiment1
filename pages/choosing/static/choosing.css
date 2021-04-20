@@ -35,9 +35,9 @@ p {
 
 .options {
     /*grid-area: options;*/
-    width: 80%;
+    /*width: 90%;*/
     margin: auto;
-    margin-top: 2vh;
+    padding-top: 2vh;
     width: max-content;
     margin:auto;
 }
