@@ -17,7 +17,7 @@ p {
     grid-template-areas: 
     'header'
     'options';
-    grid-gap: 5vh;
+    grid-gap: 2vh;
     text-align: center;
 }
 
