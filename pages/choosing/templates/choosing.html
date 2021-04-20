@@ -44,14 +44,11 @@
             </div>
         </div>
         <div class="options">
-            <!-- need to add: choosing the correct set for the user -->
-            <div style="width: max-content; margin:auto;">
-                {% for vacation in vacation_list %}
-                    <div id='{{ vacation[0] }}' class="deal" onclick="userChoice(id)">
-                        <p>{{ vacation[2] }} in {{ vacation[1] }}, in a {{ vacation[3] }}</p>
-                    </div>
-                {% endfor %}
-            </div>
+            {% for vacation in vacation_list %}
+                <div id='{{ vacation[0] }}' class="deal" onclick="userChoice(id)">
+                    <p>{{ vacation[2] }} in {{ vacation[1] }}, in a {{ vacation[3] }}</p>
+                </div>
+            {% endfor %}
         </div>
 
 

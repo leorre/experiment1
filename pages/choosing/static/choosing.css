@@ -4,6 +4,7 @@ body {
     justify-content: center;*/
     align-items: center;
     font-size: 2.4vh;
+    text-align: center;
 }
 
 p {
@@ -12,17 +13,17 @@ p {
     margin-bottom: 10px;
 }
 
-.grid-container {
-    display:grid;
-    grid-template-areas: 
-    'header'
-    'options';
-    grid-gap: 2vh;
-    text-align: center;
-}
+/*.grid-container {*/
+/*    display:grid;*/
+/*    grid-template-areas: */
+/*    'header'*/
+/*    'options';*/
+/*    grid-gap: 2vh;*/
+/*    text-align: center;*/
+/*}*/
 
 .header {
-    grid-area: header;
+    /*grid-area: header;*/
     width: 100%;
     background-color: white;
     position: sticky;
@@ -33,9 +34,12 @@ p {
 }
 
 .options {
-    grid-area: options;
+    /*grid-area: options;*/
     width: 80%;
     margin: auto;
+    margin-top: 2vh;
+    width: max-content;
+    margin:auto;
 }
 
 .deal{
