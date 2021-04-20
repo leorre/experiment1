@@ -1,3 +1,6 @@
+var num_of_clicks = 0; //the number of times the user clicks on the recommendation button
+
+
 function userChoice(id) {
     //alert(num_of_clicks); //the number of clicks on the recommendation window
     //id = the specific vacation the user chose (vac_id).
