@@ -34,28 +34,34 @@
         </script>
         <div class="header">
             <h1>Please choose one vacation-deal:</h1>
+            <p>Recommended For You:</p>
+            {% for vacation in recomm_list %}
+                <div id='-1' class="deal recomm" onclick="userChoice(id)">
+                    <p>{{ vacation[2] }} in {{ vacation[1] }}, in a {{ vacation[3] }}</p>
+                </div>
+            {% endfor %}
             <!-- Trigger/Open The Modal -->
-            <button id="myBtn">Click here for recommendations</button>
+{#            <button id="myBtn">Click here for recommendations</button>#}
 
             <!-- The Modal -->
-            <div id="myModal" class="modal" style= "display: block"> <!--IF I WANT THE RECOMM WINDOW TO POP UP WHEN PAGE LOADS FOR THE FIRST TIME, ADD: style= "display: block"-->
-
-                <!-- Modal content -->
-                <div class="modal-content grid-container-modal">
-                    <!--<span class="close">&times;</span>-->     <!--the X button of the modal!-->
-                    <div class="modal_header"><b style="color: orange; font-size: larger;">Recommended for you:</b>
-                    </div><br>
-                    <div class="modal_options">
-                        {% for vacation in recomm_list %}
-                            <div id='-1' class="deal recomm" onclick="userChoice(id)">
-                                <p>{{ vacation[2] }} in {{ vacation[1] }}, in a {{ vacation[3] }}</p>
-                            </div>
-                        {% endfor %}
-                    </div><br>
-                    <div class="close"><p>View more options</p></div>
-                </div>
-
-            </div>
+{#            <div id="myModal" class="modal" style= "display: block"> <!--IF I WANT THE RECOMM WINDOW TO POP UP WHEN PAGE LOADS FOR THE FIRST TIME, ADD: style= "display: block"-->#}
+{##}
+{#                <!-- Modal content -->#}
+{#                <div class="modal-content grid-container-modal">#}
+{#                    <!--<span class="close">&times;</span>-->     <!--the X button of the modal!-->#}
+{#                    <div class="modal_header"><b style="color: orange; font-size: larger;">Recommended for you:</b>#}
+{#                    </div><br>#}
+{#                    <div class="modal_options">#}
+{#                        {% for vacation in recomm_list %}#}
+{#                            <div id='-1' class="deal recomm" onclick="userChoice(id)">#}
+{#                                <p>{{ vacation[2] }} in {{ vacation[1] }}, in a {{ vacation[3] }}</p>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+{#                    </div><br>#}
+{#                    <div class="close"><p>View more options</p></div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
         </div>
         <div class="options">
             <!-- need to add: choosing the correct set for the user -->
