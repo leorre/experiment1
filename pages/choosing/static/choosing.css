@@ -28,7 +28,7 @@ p {
     position: sticky;
     left: 5%;
     top: 0.01%;
-    padding-bottom: 2vh;
+    padding-bottom: 1vh;
     border-bottom: 1px solid rgb(154,154,154);
     border-bottom: 1px solid orange;
 }
@@ -80,12 +80,7 @@ button:hover{
 }
 
 
-.recomm{
-    width: max-content;
-    margin: auto;
-    background-color: rgb(249,204,157);
-}
-
 .recomm:hover{
+    cursor: pointer;
     background-color: rgba(128, 128, 128, 0.3);
 }
