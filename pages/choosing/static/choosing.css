@@ -79,7 +79,26 @@ button:hover{
 }
 
 
+
+
+
+
+.recomm{
+    border: 1px solid rgb(198, 198, 198);
+    border-radius: 5px;
+    vertical-align: middle;
+    margin: auto;
+    background-color: rgb(249,204,157);
+    margin-bottom: 0.5vh;
+    padding: 0.2vh 1vh 0vh 1vh;
+    font-size: 2.2vh
+}
+
 .recomm:hover{
     cursor: pointer;
     background-color: rgba(128, 128, 128, 0.3);
+}
+
+.recomm:active{
+    background-color: #ffe3b7;
 }
