@@ -17,6 +17,14 @@ def questions_12():
                  WHERE "id" = '%s'""" % (age, gender, exp, device, session['code'])
         interact_db(query=query, query_type='commit')
         return redirect('/questions_2')
-    return render_template('questions_1.html')
+    return render_template('questions_1.html', showModal="true")
 
-
+@questions_1.route('/questions_11', methods=['GET', 'POST'])
+def user_answer_modal():
+    if request.method == 'POST':
+        num_of_recomm = request.form['num_of_recomm']
+        query = """UPDATE "users" SET "user_test_recomm" = '%s'
+                         WHERE "id" = '%s'""" % (num_of_recomm, session['code'])
+        interact_db(query=query, query_type='commit')
+        return render_template('questions_1.html', showModal="false")
+    return render_template('questions_1.html', showModal="true")

@@ -13,6 +13,45 @@
     </head>
 
     <body onload="orderCriteria()">
+        <script>
+            var user_num_recomm;
+
+            function checkMiniForm(){
+                user_num_recomm=which_was_chosen("num_of_recomm");
+                if (user_num_recomm == '')
+                    alert("Please select one of the options.");
+                else {//user chose one option
+
+                    alert("good");
+                    closeModal();
+                }
+            }
+
+            // When the user clicks on "Submit", close the modal
+            function closeModal(){
+                var element = document.getElementById("myModal");
+                element.classList.remove("dispBlock");
+            }
+        </script>
+        {% if showModal == "true" %}
+            <div id="myModal" class="modal dispBlock">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <form action="/questions_11" method="POST">
+                        <label for="num_of_recomm"><b>How many vacations did the system offer you?</b></label><br>
+                        <div style="text-align: left; margin: auto; display: inline-block; vertical-align: center">
+                            <input type="radio" style="margin-top: 3vh;" id="1" name="num_of_recomm" value="1" required>
+                            <label for="1">One vacation</label>
+                            <br><input type="radio" id="2" name="num_of_recomm" value="2" required>
+                            <label for="2">Two vacations</label>
+                            <br><input type="radio" id="3" name="num_of_recomm" value="3" required>
+                            <label for="3">Three vacations</label>
+                        </div><br>
+                        <button id="close" class="close submitBtn" style="margin-top: 3vh">Submit</button> <!--onclick="checkMiniForm()"-->
+                    </form>
+                </div>
+            </div>
+        {% endif %}
         <br><h1>Please answer the following questions</h1>
 
         <form action="/questions_1" method="POST">

@@ -53,3 +53,60 @@ input:hover{
 }
 
 
+
+/******** The Modal ********/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    padding-left: 7vh;
+    padding-right: 7vh;
+    border: 1px solid #888;
+    width:fit-content;
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.grid-container-modal {
+    display:grid;
+    grid-template-areas:
+    'modal_header'
+    'modal_options';
+    text-align: center;
+}
+
+/* the close button in the modal */
+.close{
+    background-color: rgb(240,240,240);
+    font-family: NotoSans_bold;
+    color: rgb(255,127,80);
+    text-align: center;
+    font-size: 2.2vh;
+    width: fit-content;
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0.2vh 2vh 0vh 2vh; /* top right bot left */
+}
+.close:hover,
+.close:focus {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgb(245,245,245);
+}
