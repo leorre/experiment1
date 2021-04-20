@@ -21,11 +21,10 @@
 
     <body class="grid-container" onload="scrollUp()">
         <script type=text/javascript>
-              function connectJStoFlask(choseRec,id,num_of_clicks) {
+              function connectJStoFlask(choseRec,id) {
                   $.getJSON($SCRIPT_ROOT + '/insertUserChoices', {
                     choseRec: choseRec,
-                    id: id,
-                    num_of_clicks: num_of_clicks
+                    id: id
                 }, function(data) {
                       $("#result").text(data.result);
                 });

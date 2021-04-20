@@ -306,9 +306,8 @@ def insertUserChoices():
     print("type",type(time_diff))
     is_recomm = request.args.get('choseRec')  # false=not recomm, true=chose what was recommended
     chosen_vacation_id = request.args.get('id')  # currently, not in use for experiment 1
-    num_of_clicks = request.args.get('num_of_clicks')
-    query = """UPDATE "users" SET "choseRecomm" = '%s', "numClicks" = '%s', "time" = '%s'
-     WHERE "id" = '%s'""" % (is_recomm, num_of_clicks, time_diff, session['code'])
+    query = """UPDATE "users" SET "choseRecomm" = '%s', "time" = '%s'
+     WHERE "id" = '%s'""" % (is_recomm, time_diff, session['code'])
     interact_db(query=query, query_type='commit')
     return
 
