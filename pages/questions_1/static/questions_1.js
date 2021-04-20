@@ -4,18 +4,16 @@ function checkForm (){
         return;
     }
 
-    //age, gender, experience, device and native-language:
+    //age, gender, experience, device
     var age=document.getElementById("age").value;
     var gender=which_was_chosen("gender"); //takes the "value"
     var experience=which_was_chosen("experience");
     var device=which_was_chosen("device");
-    var native=which_was_chosen("native");
     //alert("age: "+age+", gender: "+gender+", experience: "+experience+", device: "+device); ///////////////////////////// the answers of the user
-    if (gender!='' && experience!='' && device!='' && native!='') { //for flask - "required" on radio buttons doesn't work without it
+    if (gender!='' && experience!='' && device!='') { //for flask - "required" on radio buttons doesn't work without it
         gender = onlyFirstChar(gender);
         experience = yesNoToBoolean(experience);
-        native = yesNoToBoolean(native);
-        connectJStoFlask(age,gender,experience,device,native);
+        connectJStoFlask(age,gender,experience,device);
         nextPage(); //moves to the next page
     }
 }

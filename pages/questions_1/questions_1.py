@@ -13,9 +13,8 @@ def questions_12():
         gender = request.form['gender']
         exp = request.form['experience']
         device = request.form['device']
-        native = request.form['native']
-        query = """UPDATE "users" SET "age" = '%s', "gender" = '%s', "experience" = '%s', "device" = '%s', "native" = '%s'
-                 WHERE "id" = '%s'""" % (age, gender, exp, device, native, session['code'])
+        query = """UPDATE "users" SET "age" = '%s', "gender" = '%s', "experience" = '%s', "device" = '%s'
+                 WHERE "id" = '%s'""" % (age, gender, exp, device, session['code'])
         interact_db(query=query, query_type='commit')
         return redirect('/questions_2')
     return render_template('questions_1.html')
