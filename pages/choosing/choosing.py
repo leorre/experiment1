@@ -109,7 +109,7 @@ def createVacationSet (user_ranking, recomm_list):
 
     query = """SELECT * FROM vacations"""
     all_vacations = interact_db(query=query, query_type='fetch')
-    random.shuffle(all_vacations)
+    #random.shuffle(all_vacations)
 
     recomm_1 = 1
     recomm_2 = 1
@@ -160,7 +160,7 @@ def createVacationSet (user_ranking, recomm_list):
             all_vacations.remove(vacation)
             print(" differ in the first:",vacation)
 
-    random.shuffle(set)
+    #random.shuffle(set)
     return set
 
 
