@@ -35,7 +35,7 @@ def insertRanks1():
         sleepRank=1
     elif rank2 == "Sleeping Arrangement":
         sleepRank=2
-    query = """INSERT INTO users(id, "continentRank", "typeRank", "sleepRank", "changeRank") VALUES ('%s', '%s', '%s', '%s', '%s') """ \
+    query = """INSERT INTO users(id, "continent_rank", "type_rank", "sleep_rank", "change_rank") VALUES ('%s', '%s', '%s', '%s', '%s') """ \
             % (session['code'], continentRank, typeRank, sleepRank, changeRank)
     interact_db(query=query, query_type='commit')
     return #no need for render_template or redirect - it doesnt work because of ajax

@@ -18,7 +18,7 @@ def choosing2():
     session['start_time'] = time.time()
     print("start_time:", session['start_time'])
     autonomy_lvl = generateAutonomyLvl()
-    query_rec = """SELECT "continentRank", "typeRank", "sleepRank", "continentOption", "typeOption", "sleepOption" FROM users WHERE "id" = '%s'""" % (session['code'])
+    query_rec = """SELECT "continent_rank", "type_rank", "sleep_rank", "continent_option", "type_option", "sleep_option" FROM users WHERE "id" = '%s'""" % (session['code'])
     user_ranking = interact_db(query=query_rec, query_type='fetch')
     user_ranking = user_ranking[0]
     print("user_ranking:", user_ranking, "autonomy level:", autonomy_lvl)
@@ -258,7 +258,7 @@ def recommendationsSameOnlyInOneElement(user_ranking, number): #number=critiria 
 # generates the user autonomy level (high/low), insert to DB and returns the level
 def generateAutonomyLvl():
     currAutonomy = random.choice(['high', 'low'])
-    query = """UPDATE "users" SET "autonomyLvl" = '%s'
+    query = """UPDATE "users" SET "autonomy_lvl" = '%s'
          WHERE "id" = '%s'""" % (currAutonomy, session['code'])
     interact_db(query=query, query_type='commit')
     return currAutonomy
@@ -336,8 +336,8 @@ def insertUserChoices():
     print("index: ", vacIndex)
     print("recomm: ", is_recomm)
 
-    query = """UPDATE "users" SET "chosenVacId" = '%s', "vacIndex" = '%s', "choseOptimal" = '%s', 
-    "isRecomm" = '%s', "time" = '%s' WHERE "id" = '%s'""" \
+    query = """UPDATE "users" SET "chosen_vac_id" = '%s', "chosen_vac_index" = '%s', "is_optimal" = '%s', 
+    "is_recomm" = '%s', "time" = '%s' WHERE "id" = '%s'""" \
             % (chosen_vacation_id, vacIndex, choseOptimal, is_recomm, time_diff, session['code'])
     interact_db(query=query, query_type='commit')
     return

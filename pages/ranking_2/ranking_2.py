@@ -17,7 +17,7 @@ def insertRanks2():
     continentOption = request.args.get('rank1')
     typeOption = request.args.get('rank2')
     sleepOption = request.args.get('rank3')
-    query = """UPDATE "users" SET "continentOption" = '%s', "typeOption" = '%s', "sleepOption" = '%s'
+    query = """UPDATE "users" SET "continent_option" = '%s', "type_option" = '%s', "sleep_option" = '%s'
      WHERE "id" = '%s'""" % (continentOption, typeOption, sleepOption, session['code'])
     interact_db(query=query, query_type='commit')
     return

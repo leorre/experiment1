@@ -14,7 +14,7 @@ def algo_data1():
         vacs_in_three = request.form['vacs_in_three']
         advance_book = request.form['book']
         plan = request.form['plan']
-        query = """UPDATE "users" SET "last_vac" = '%s', "vacs_in_three" = '%s', "advance_book" = '%s', "plan" = '%s'
+        query = """UPDATE "users" SET "algo_last_vac" = '%s', "algo_vacs_three" = '%s', "algo_book" = '%s', "algo_plan" = '%s'
                          WHERE "id" = '%s'""" % (last_vac, vacs_in_three, advance_book, plan, session['code'])
         interact_db(query=query, query_type='commit')
         return redirect('/ranking_2')
