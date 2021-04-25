@@ -336,8 +336,8 @@ def insertUserChoices():
     print("index: ", vacIndex)
     print("recomm: ", is_recomm)
 
-    query = """UPDATE "users" SET "chosenVacId" = '%s', "chosenVac" = '%s', "vacIndex" = '%s' WHERE "id" = '%s'"""\
-            % (chosen_vacation_id, chosen_vacation, vacIndex, session['code'])
+    query = """UPDATE "users" SET "chosenVacId" = '%s', "vacIndex" = '%s' WHERE "id" = '%s'"""\
+            % (chosen_vacation_id, vacIndex, session['code'])
     interact_db(query=query, query_type='commit')
 
     # query = """UPDATE "users" SET "chosenVacId" = '%s', "chosenVac" = '%s', "vacIndex" = '%s',
