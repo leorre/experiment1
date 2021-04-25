@@ -109,7 +109,7 @@ def createVacationSet (user_ranking, recomm_list):
 
     query = """SELECT * FROM vacations"""
     all_vacations = interact_db(query=query, query_type='fetch')
-    #random.shuffle(all_vacations)
+    random.shuffle(all_vacations)
 
     recomm_1 = 1
     recomm_2 = 1
@@ -160,7 +160,7 @@ def createVacationSet (user_ranking, recomm_list):
             all_vacations.remove(vacation)
             print(" differ in the first:",vacation)
 
-    #random.shuffle(set)
+    random.shuffle(set)
     return set
 
 
@@ -314,7 +314,7 @@ def getVacationAccordingID(id):
 def insertUserChoices():
     time_diff = time.time() - session.get('start_time', 0)  # user time in the page (including time in other websites)
     chosen_vacation_id = request.args.get('id')  # the chosen vacation id number
-    chosen_vacation = getVacationAccordingID(chosen_vacation_id)
+    chosen_vacation = getVacationAccordingID(chosen_vacation_id)  # can't insert to DB because it's a tuple
 
     print("chosenVacID:", chosen_vacation_id)
     print("chosen_vacation: ", chosen_vacation)
@@ -322,7 +322,7 @@ def insertUserChoices():
     vacation_list = session['vacation_list']
 
     choseOptimal = False
-    if (session['optimal_id'] == chosen_vacation_id):
+    if session['optimal_id'] == int(chosen_vacation_id):
         choseOptimal = True  # the user chose the optimal vacation
 
     vacIndex = -2  # the place of the chosen vacation in the set
