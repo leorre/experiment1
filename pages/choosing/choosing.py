@@ -9,6 +9,8 @@ import random
 choosing = Blueprint('choosing', __name__, static_folder='static', static_url_path='/choosing',
                      template_folder='templates')
 
+recomm_list = []
+vacation_list = []
 
 # Routes
 @choosing.route('/choosing')
@@ -300,13 +302,19 @@ def matchingVacationOption(option):
 @choosing.route('/insertUserChoices')
 def insertUserChoices():
     time_diff = time.time() - session.get('start_time', 0)  # user time in the page (including time in other websites)
-    print(time_diff)
-    print("type",type(time_diff))
-    is_recomm = request.args.get('choseRec')  # false=not recomm, true=chose what was recommended
-    chosen_vacation_id = request.args.get('id')  # currently, not in use for experiment 1
-    query = """UPDATE "users" SET "choseRecomm" = '%s', "time" = '%s'
-     WHERE "id" = '%s'""" % (is_recomm, time_diff, session['code'])
-    interact_db(query=query, query_type='commit')
+    chosen_vacation_id = request.args.get('id')  # the chosen vacation id number
+    print("the id is: ", chosen_vacation_id)
+    print("recomm_list: ", recomm_list)
+    print("vacation list: ", vacation_list)
+    print("vacation_list[0]: ", vacation_list[0])
+    print("vacation_list[0][0]: ", vacation_list[0][0])
+
+    print("recomm_list[0]: ", recomm_list[0])
+    print("recomm_list[0][0]: ", recomm_list[0][0])
+
+    # query = """UPDATE "users" SET "choseRecomm" = '%s', "time" = '%s'
+    #  WHERE "id" = '%s'""" % (is_recomm, time_diff, session['code'])
+    # interact_db(query=query, query_type='commit')
     return
 
 

@@ -21,9 +21,8 @@
 
     <body class="grid-container" onload="scrollUp()">
         <script type=text/javascript>
-              function connectJStoFlask(choseRec,id) {
+              function connectJStoFlask(id) {
                   $.getJSON($SCRIPT_ROOT + '/insertUserChoices', {
-                    choseRec: choseRec,
                     id: id
                 }, function(data) {
                       $("#result").text(data.result);
@@ -36,7 +35,7 @@
             <p><b>These vacations are recommended for you:</b></p>
             <div style="width: max-content; margin:auto; margin-bottom: 0; padding-bottom: 0;">
                 {% for vacation in recomm_list %}
-                    <div id='-1' class="recomm" onclick="userChoice(id)">
+                    <div id='{{ vacation[0] }}' class="recomm" onclick="userChoice(id)">
                         <p>{{ vacation[2] }} in {{ vacation[1] }}, in a {{ vacation[3] }}</p>
                     </div>
                 {% endfor %}
@@ -49,7 +48,6 @@
                 </div>
             {% endfor %}
         </div>
-
 
     </body>
 </html>

@@ -1,4 +1,4 @@
-if (mobileCheck()) {  //the user is using mobile device
+if (mobileCheck()) {  //change the vacations' font-size if it's mobile (smaller)
     var options = document.getElementsByClassName('options');
     for(i = 0; i < options.length; i++) {
         options[i].style.fontSize = '1.8vh';
@@ -22,14 +22,10 @@ window.mobileCheck = function() {
 
 function userChoice(id) {
     //id = the specific vacation the user chose (vac_id).
-    // if the user chose one of the recommender system's offers: id=-1.
     //var x = document.getElementById(id).innerHTML; -> this is the chosen vacation
     var double_check = confirm("Is this the vacation you want to choose?");
     if (double_check) { //yes - next page
-        var choseRec = false; //didn't choose recommendation
-        if (id == -1)
-            choseRec = true; //chose ont of the recommendations
-        connectJStoFlask(choseRec,id); //id=-1 if it's one of the recomm
+        connectJStoFlask(id);
         window.location.href = "/questions_1";
     }
     else { //nothing happens - the user regrets his decision
