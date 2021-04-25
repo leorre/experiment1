@@ -13,5 +13,5 @@ def end2():
     query = """UPDATE "users" SET "exp_time" = '%s' WHERE "id" = '%s'""" \
             % (all_time, session['code'])
     interact_db(query=query, query_type='commit')
-    amazon_code = 1234
+    amazon_code = session['code']+3000
     return render_template('end.html', amazon_code=amazon_code)
