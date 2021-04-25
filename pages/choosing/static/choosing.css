@@ -37,7 +37,7 @@ p {
     /*width: 90%;*/
     margin: auto;
     padding-top: 2vh;
-    font-size: 1.8vh;
+    /*font-size: 1.8vh;*/
     /*width: max-content;*/
     margin:auto;
 }
@@ -51,8 +51,7 @@ p {
     padding-top: 1vh;
     padding-bottom: 1vh;
     vertical-align: middle;
-    font-size: 1.8vh;
-
+    /*font-size: 1.8vh;*/
 }
 
 .deal:hover{
@@ -96,7 +95,7 @@ p {
     background-color: rgb(249,204,157);
     margin-bottom: 0.5vh;
     padding: 0.2vh 1vh 0vh 1vh;
-    font-size: 1.8vh;
+    /*font-size: 1.8vh;*/
 }
 
 .recomm:hover{

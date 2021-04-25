@@ -14,21 +14,20 @@ choosing = Blueprint('choosing', __name__, static_folder='static', static_url_pa
 @choosing.route('/choosing')
 def choosing2():
     session['start_time'] = time.time()
-    print("start_time:",session['start_time'])
+    print("start_time:", session['start_time'])
     autonomy_lvl = generateAutonomyLvl()
     query_rec = """SELECT "continentRank", "typeRank", "sleepRank", "continentOption", "typeOption", "sleepOption" FROM users WHERE "id" = '%s'""" % (session['code'])
     user_ranking = interact_db(query=query_rec, query_type='fetch')
     user_ranking = user_ranking[0]
-    print("user_ranking:",user_ranking,"autonomy level:", autonomy_lvl)
+    print("user_ranking:", user_ranking, "autonomy level:", autonomy_lvl)
     if autonomy_lvl == 'low':
         recomm_list = recommForLowAutonomy(user_ranking)
         addsIdToVacation
-    else: #autonomy_lvl == 'high'
+    else:  # autonomy_lvl == 'high'
         recomm_list = recommForHighAutonomy(user_ranking)
     vacation_list = createVacationSet(user_ranking, recomm_list)
-    print("before return")
-    print("vacation list",vacation_list)
-    print("recomm",recomm_list)
+    print("vacation list", vacation_list)
+    print("recomm", recomm_list)
     return render_template('choosing.html', vacation_list=vacation_list, recomm_list=recomm_list)
 
 
