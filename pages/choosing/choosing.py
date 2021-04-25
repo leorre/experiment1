@@ -15,8 +15,8 @@ vacation_list = []
 # Routes
 @choosing.route('/choosing')
 def choosing2():
-    session['start_time'] = time.time()
-    print("start_time:", session['start_time'])
+    session['start_time_choosing'] = time.time()
+    print("start_time_choosing:", session['start_time_choosing'])
     autonomy_lvl = generateAutonomyLvl()
     query_rec = """SELECT "continent_rank", "type_rank", "sleep_rank", "continent_option", "type_option", "sleep_option" FROM users WHERE "id" = '%s'""" % (session['code'])
     user_ranking = interact_db(query=query_rec, query_type='fetch')
@@ -312,7 +312,7 @@ def getVacationAccordingID(id):
 # inserts user's choices to DB - wether he chose the recommendation and the number of clicks on the rec window
 @choosing.route('/insertUserChoices')
 def insertUserChoices():
-    time_diff = time.time() - session.get('start_time', 0)  # user time in the page (including time in other websites)
+    time_diff = time.time() - session.get('start_time_choosing', 0)  # user time in the page (including time in other websites)
     chosen_vacation_id = request.args.get('id')  # the chosen vacation id number
     chosen_vacation = getVacationAccordingID(chosen_vacation_id)  # can't insert to DB because it's a tuple
 
@@ -337,7 +337,7 @@ def insertUserChoices():
     print("recomm: ", is_recomm)
 
     query = """UPDATE "users" SET "chosen_vac_id" = '%s', "chosen_vac_index" = '%s', "is_optimal" = '%s', 
-    "is_recomm" = '%s', "time" = '%s' WHERE "id" = '%s'""" \
+    "is_recomm" = '%s', "choose_time" = '%s' WHERE "id" = '%s'""" \
             % (chosen_vacation_id, vacIndex, choseOptimal, is_recomm, time_diff, session['code'])
     interact_db(query=query, query_type='commit')
     return
