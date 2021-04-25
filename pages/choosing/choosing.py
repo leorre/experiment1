@@ -30,6 +30,8 @@ def choosing2():
     vacation_list = createVacationSet(user_ranking, recomm_list)
     print("vacation list", vacation_list)
     print("recomm", recomm_list)
+    session['vacation_list'] = vacation_list
+    session['recomm_list'] = recomm_list
     return render_template('choosing.html', vacation_list=vacation_list, recomm_list=recomm_list)
 
 
@@ -102,6 +104,8 @@ def createVacationSet (user_ranking, recomm_list):
     optimal = OptimalVacation (user_ranking) #with id num
     optimal = optimal[0]
     set.append(optimal)
+    session['optimal_id'] = optimal[0]
+
 
     query = """SELECT * FROM vacations"""
     all_vacations = interact_db(query=query, query_type='fetch')
@@ -298,23 +302,44 @@ def matchingVacationOption(option):
         return "cabin"
 
 
+# return the full vacation details from the DB according to vacation id
+def getVacationAccordingID(id):
+    query = """SELECT * FROM vacations WHERE "vac_id" = '%s'""" % (id)
+    vacation = interact_db(query=query, query_type='fetch')
+    return vacation[0]
+
+
 # inserts user's choices to DB - wether he chose the recommendation and the number of clicks on the rec window
 @choosing.route('/insertUserChoices')
 def insertUserChoices():
     time_diff = time.time() - session.get('start_time', 0)  # user time in the page (including time in other websites)
     chosen_vacation_id = request.args.get('id')  # the chosen vacation id number
-    print("the id is: ", chosen_vacation_id)
-    print("recomm_list: ", recomm_list)
-    print("vacation list: ", vacation_list)
-    print("vacation_list[0]: ", vacation_list[0])
-    print("vacation_list[0][0]: ", vacation_list[0][0])
+    chosen_vacation = getVacationAccordingID(chosen_vacation_id)
 
-    print("recomm_list[0]: ", recomm_list[0])
-    print("recomm_list[0][0]: ", recomm_list[0][0])
+    print("chosenVacID:", chosen_vacation_id)
+    print("chosen_vacation: ", chosen_vacation)
+    recomm_list = session['recomm_list']
+    vacation_list = session['vacation_list']
 
-    # query = """UPDATE "users" SET "choseRecomm" = '%s', "time" = '%s'
-    #  WHERE "id" = '%s'""" % (is_recomm, time_diff, session['code'])
-    # interact_db(query=query, query_type='commit')
+    choseOptimal = False
+    if (session['optimal_id'] == chosen_vacation_id):
+        choseOptimal = True  # the user chose the optimal vacation
+
+    vacIndex = -2  # the place of the chosen vacation in the set
+    is_recomm = False  # did the user choose one of the recommendations?
+    if chosen_vacation in recomm_list:
+        vacIndex = recomm_list.index(chosen_vacation)
+        is_recomm = True
+    elif chosen_vacation in vacation_list:
+        vacIndex = vacation_list.index(chosen_vacation)
+    vacIndex = vacIndex + 1  # because it starts in 0
+    print("index: ", vacIndex)
+    print("recomm: ", is_recomm)
+
+    query = """UPDATE "users" SET "chosenVacId" = '%s', "chosenVac" = '%s', "vacIndex" = '%s', 
+    "choseOptimal" = '%s', "isRecomm" = '%s', "time" = '%s' WHERE "id" = '%s'""" \
+            % (chosen_vacation_id, chosen_vacation, vacIndex, choseOptimal, is_recomm, time_diff, session['code'])
+    interact_db(query=query, query_type='commit')
     return
 
 
