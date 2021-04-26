@@ -122,7 +122,7 @@ def createVacationSet (user_ranking, recomm_list):
 
     all_vacations_temp = all_vacations.copy()
     for vacation in all_vacations_temp:
-        if recomm_3 > 9:  # 9 recomm that differ in the first and second criterion = same in the third
+        if recomm_3 > 5:  # 5 recomm that differ in the first and second criterion = same in the third
             break
         if validVacationSameInOneElement(user_ranking,vacation,3):
             set.append(vacation)
@@ -132,7 +132,7 @@ def createVacationSet (user_ranking, recomm_list):
 
     all_vacations_temp = all_vacations.copy()
     for vacation in all_vacations_temp:
-        if recomm_4 > 9: # 9 recomm that differ in the first and third criterion = same in the second
+        if recomm_4 > 5:  # 5 recomm that differ in the first and third criterion = same in the second
             break
         if validVacationSameInOneElement(user_ranking,vacation,2):
             recomm_4 = recomm_4+1;
@@ -142,7 +142,7 @@ def createVacationSet (user_ranking, recomm_list):
 
     all_vacations_temp = all_vacations.copy()
     for vacation in all_vacations_temp:
-        if recomm_2 > 8: # 8 recomm that differ in the second and third criterion
+        if recomm_2 > 5: # 5 recomm that differ in the second and third criterion = same in the first
             break
         if validVacationSameInOneElement(user_ranking,vacation,1):
             recomm_2 = recomm_2+1;
@@ -152,7 +152,7 @@ def createVacationSet (user_ranking, recomm_list):
 
     all_vacations_temp = all_vacations.copy()
     for vacation in all_vacations_temp:
-        if recomm_1 > 2: # need two recomm that differ in the first criteria
+        if recomm_1 > 2: # 2 recomm that differ in the first criteria
             break
         if validVacationDifferInOneElement(user_ranking,vacation,1):
             recomm_1 = recomm_1+1;

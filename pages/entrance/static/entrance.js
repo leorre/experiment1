@@ -15,7 +15,7 @@ function checkCode (){
     var a = document.getElementById('next');
     if (code >= 2000 && code < 3000){ // mobile code
         if (!mobileCheck()){ //not using a mobile
-            alert("Please enter the experiment through your mobile device.");
+            alert("Please enter the experiment through your smartphone.");
             document.getElementById('code_id').value = "";
         }
         else{ // mobile user + valid entrance
