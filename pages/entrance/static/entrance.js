@@ -17,27 +17,24 @@ function checkCode (){
         if (!mobileCheck()){ //not using a mobile
             alert("Please enter the experiment through your smartphone.");
             document.getElementById('code_id').value = "";
+            return;
         }
         else{ // mobile user + valid entrance
-            //alert("mobile success");
-            //connectJStoFlask(code);
-            //nextPage(); //moves to the next page
         }
     }
     else if (code >= 1000 && code < 2000){ //pc code
         if (mobileCheck()){ //not using a pc
             alert("Please enter the experiment through your computer.");
             document.getElementById('code_id').value = "";
+            return;
         }
         else{ // pc user + valid entrance
-            //alert("pc success");
-            //connectJStoFlask(code);
-            //nextPage(); //moves to the next page
         }
     }
     else{
         alert("Invalid Code"); //code is not between 1000-3000
         document.getElementById('code_id').value = "";
+        return;
     }
 }
 
