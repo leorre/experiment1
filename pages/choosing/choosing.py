@@ -177,7 +177,7 @@ def OptimalVacation (user_ranking):
 # returns a list of all the system's recommendations for a low-autonomy user
 # low autonomy = only 1 recommendation, defers in the third rank
 def recommForLowAutonomy(user_ranking):
-    recomm = recommendationsDeferInAnElement (user_ranking,3)  # different in the second element only
+    recomm = recommendationsDeferInAnElement (user_ranking,3)  # different in the third element only
     return recomm #list
 
 
@@ -185,7 +185,7 @@ def recommForLowAutonomy(user_ranking):
 # high autonomy = 3 recommendations: one defers in the second rank, two in the first
 def recommForHighAutonomy(user_ranking):
     recomm1 = recommendationsDeferInAnElement(user_ranking,2) # different in the second element only
-    recomm2 = recommendationsDeferInAnElement(user_ranking,1) # different in the first element only
+    recomm2 = recommendationsDeferInAnElement(user_ranking,3) # different in the third element only
     recomm3 = recommendationsSameOnlyInOneElement(user_ranking,1) # different in 2 AND 3 (same in the first)
     list = recomm1 + recomm2 + recomm3
     random.shuffle(list)
