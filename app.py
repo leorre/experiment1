@@ -61,7 +61,7 @@ app.register_blueprint(end)
 @app.route('/')
 def baseFunction():
     session['code'] = 0
-    return redirect("/entrance")
+    return redirect("/code")
 
 
 # DB connection
